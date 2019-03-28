@@ -3,17 +3,22 @@
 # Table name: job_posts
 #
 #  id                   :integer          not null, primary key
-#  job_title            :string
-#  job_description      :text
-#  eligibility_criteria :string
-#  required_experience  :string
-#  fresher_allowed      :boolean
-#  status               :string
-#  published_at         :date
 #  cover_image          :string
-#  company_id           :integer
+#  eligibility_criteria :string
+#  fresher_allowed      :boolean
+#  job_description      :text
+#  job_title            :string
+#  job_type             :string
+#  published_at         :date
+#  required_experience  :string
+#  status               :string
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
+#  company_id           :integer
+#
+# Indexes
+#
+#  index_job_posts_on_company_id  (company_id)
 #
 
 class JobPost < ApplicationRecord

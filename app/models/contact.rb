@@ -3,13 +3,17 @@
 # Table name: contacts
 #
 #  id             :integer          not null, primary key
-#  name           :string
-#  email          :string
 #  contact_number :string
+#  email          :string
 #  message        :string
-#  company_id     :integer
+#  name           :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  company_id     :integer
+#
+# Indexes
+#
+#  index_contacts_on_company_id  (company_id)
 #
 
 class Contact < ApplicationRecord

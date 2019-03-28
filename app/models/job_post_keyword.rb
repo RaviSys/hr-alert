@@ -3,10 +3,15 @@
 # Table name: job_post_keywords
 #
 #  id          :integer          not null, primary key
-#  keyword_id  :integer
-#  job_post_id :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  job_post_id :integer
+#  keyword_id  :integer
+#
+# Indexes
+#
+#  index_job_post_keywords_on_job_post_id  (job_post_id)
+#  index_job_post_keywords_on_keyword_id   (keyword_id)
 #
 
 class JobPostKeyword < ApplicationRecord
