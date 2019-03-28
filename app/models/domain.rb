@@ -1,14 +1,3 @@
-# == Schema Information
-#
-# Table name: domains
-#
-#  id          :integer          not null, primary key
-#  name        :string
-#  description :text
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#
-
 class Domain < ApplicationRecord
   acts_as_taggable_on :key_areas
 
@@ -16,3 +5,14 @@ class Domain < ApplicationRecord
   has_many :companies, through: :company_domains
   validates :name, presence: true, uniqueness: true
 end
+
+# == Schema Information
+#
+# Table name: domains
+#
+#  id          :integer          not null, primary key
+#  description :text
+#  name        :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#

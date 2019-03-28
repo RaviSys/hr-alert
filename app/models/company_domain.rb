@@ -1,3 +1,8 @@
+class CompanyDomain < ApplicationRecord
+  belongs_to :company, optional: true
+  belongs_to :domain, optional: true
+end
+
 # == Schema Information
 #
 # Table name: company_domains
@@ -13,8 +18,3 @@
 #  index_company_domains_on_company_id  (company_id)
 #  index_company_domains_on_domain_id   (domain_id)
 #
-
-class CompanyDomain < ApplicationRecord
-  belongs_to :company, optional: true
-  belongs_to :domain, optional: true
-end

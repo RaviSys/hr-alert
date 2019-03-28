@@ -1,3 +1,8 @@
+class JobPostKeyword < ApplicationRecord
+  belongs_to :keyword, optional: true
+  belongs_to :job_post, optional: true
+end
+
 # == Schema Information
 #
 # Table name: job_post_keywords
@@ -13,8 +18,3 @@
 #  index_job_post_keywords_on_job_post_id  (job_post_id)
 #  index_job_post_keywords_on_keyword_id   (keyword_id)
 #
-
-class JobPostKeyword < ApplicationRecord
-  belongs_to :keyword, optional: true
-  belongs_to :job_post, optional: true
-end

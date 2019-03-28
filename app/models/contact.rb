@@ -1,3 +1,8 @@
+class Contact < ApplicationRecord
+  belongs_to :company, optional: true
+  validates :name, :email, :contact_number, :message, presence: true
+end
+
 # == Schema Information
 #
 # Table name: contacts
@@ -15,8 +20,3 @@
 #
 #  index_contacts_on_company_id  (company_id)
 #
-
-class Contact < ApplicationRecord
-  belongs_to :company, optional: true
-  validates :name, :email, :contact_number, :message, presence: true
-end
