@@ -1,6 +1,7 @@
 class CompanyDomain < ApplicationRecord
-  belongs_to :company, optional: true
-  belongs_to :domain, optional: true
+  include Companyable
+  include Domainable
+  validates :company_id, :domain_id, presence: true
 end
 
 # == Schema Information

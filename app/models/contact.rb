@@ -1,5 +1,5 @@
 class Contact < ApplicationRecord
-  belongs_to :company, optional: true
+  include Companyable
   validates :name, :email, :contact_number, :message, presence: true
 end
 
