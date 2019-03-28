@@ -1,5 +1,4 @@
 class Domain < ApplicationRecord
-
   acts_as_taggable_on :key_areas
 
   has_many :company_domains

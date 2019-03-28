@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_075329) do
+ActiveRecord::Schema.define(version: 2019_03_28_092055) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -47,9 +47,52 @@ ActiveRecord::Schema.define(version: 2019_03_28_075329) do
     t.index ["domain_id"], name: "index_company_domains_on_domain_id"
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "contact_number"
+    t.string "message"
+    t.integer "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_contacts_on_company_id"
+  end
+
   create_table "domains", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "job_post_keywords", force: :cascade do |t|
+    t.integer "keyword_id"
+    t.integer "job_post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_post_id"], name: "index_job_post_keywords_on_job_post_id"
+    t.index ["keyword_id"], name: "index_job_post_keywords_on_keyword_id"
+  end
+
+  create_table "job_posts", force: :cascade do |t|
+    t.string "job_title"
+    t.text "job_description"
+    t.string "eligibility_criteria"
+    t.string "required_experience"
+    t.boolean "fresher_allowed"
+    t.string "status"
+    t.date "published_at"
+    t.string "cover_image"
+    t.integer "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_job_posts_on_company_id"
+  end
+
+  create_table "keywords", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "info_source"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
