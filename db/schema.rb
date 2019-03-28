@@ -10,7 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_074128) do
+ActiveRecord::Schema.define(version: 2019_03_28_075329) do
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "website"
+    t.string "contact_one"
+    t.string "contact_two"
+    t.string "fax"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "facebook_url"
+    t.string "linkedin_url"
+    t.string "twitter_url"
+    t.string "google_plus_url"
+    t.string "youtube_url"
+    t.string "company_size"
+    t.string "cover_image"
+    t.string "logo_image"
+    t.float "latitude"
+    t.float "longitude"
+    t.date "year_of_establishment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "company_domains", force: :cascade do |t|
+    t.integer "company_id"
+    t.integer "domain_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_company_domains_on_company_id"
+    t.index ["domain_id"], name: "index_company_domains_on_domain_id"
+  end
+
+  create_table "domains", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "taggings", force: :cascade do |t|
     t.integer "tag_id"
