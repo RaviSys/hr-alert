@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_095832) do
+ActiveRecord::Schema.define(version: 2019_03_28_100821) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -63,6 +63,14 @@ ActiveRecord::Schema.define(version: 2019_03_28_095832) do
   create_table "domains", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "image"
+    t.string "imageable_type"
+    t.integer "imageable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
