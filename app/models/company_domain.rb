@@ -1,7 +1,12 @@
 class CompanyDomain < ApplicationRecord
   include Companyable
   include Domainable
-  validates :company_id, :domain_id, presence: true
+  validates :domain_id, presence: true
+  validates :company_id, presence: true,
+    uniqueness: { 
+      scope: :domain_id, 
+      message: 'already included this domain' 
+    }
 end
 
 # == Schema Information
