@@ -1,6 +1,6 @@
 class JobPostKeyword < ApplicationRecord
-  belongs_to :keyword, optional: true
-  belongs_to :job_post, optional: true
+  belongs_to :keyword, optional: true, counter_cache: true
+  belongs_to :job_post, optional: true, counter_cache: true
 end
 
 # == Schema Information

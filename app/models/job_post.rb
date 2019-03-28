@@ -10,19 +10,20 @@ end
 #
 # Table name: job_posts
 #
-#  id                   :integer          not null, primary key
-#  cover_image          :string
-#  eligibility_criteria :string
-#  fresher_allowed      :boolean
-#  job_description      :text
-#  job_title            :string
-#  job_type             :string
-#  published_at         :date
-#  required_experience  :string
-#  status               :string
-#  created_at           :datetime         not null
-#  updated_at           :datetime         not null
-#  company_id           :integer
+#  id                      :integer          not null, primary key
+#  cover_image             :string
+#  eligibility_criteria    :string
+#  fresher_allowed         :boolean
+#  job_description         :text
+#  job_post_keywords_count :integer
+#  job_title               :string
+#  job_type                :string
+#  published_at            :date
+#  required_experience     :string
+#  status                  :string
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  company_id              :integer
 #
 # Indexes
 #

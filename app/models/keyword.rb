@@ -8,10 +8,11 @@ end
 #
 # Table name: keywords
 #
-#  id          :integer          not null, primary key
-#  description :text
-#  info_source :string
-#  name        :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id                      :integer          not null, primary key
+#  description             :text
+#  info_source             :string
+#  job_post_keywords_count :integer
+#  name                    :string
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
 #

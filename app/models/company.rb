@@ -5,7 +5,7 @@ class Company < ApplicationRecord
   has_many :job_posts
   has_many :contacts
   has_many :images, as: :imageable
-  belongs_to :industry, optional: true
+  belongs_to :industry, optional: true, counter_cache: true
 end
 
 # == Schema Information
@@ -15,15 +15,18 @@ end
 #  id                    :integer          not null, primary key
 #  address               :string
 #  city                  :string
+#  company_domains_count :integer
 #  company_size          :string
 #  contact_one           :string
 #  contact_two           :string
+#  contacts_count        :integer
 #  country               :string
 #  cover_image           :string
 #  email                 :string
 #  facebook_url          :string
 #  fax                   :string
 #  google_plus_url       :string
+#  job_posts_count       :integer
 #  latitude              :float
 #  linkedin_url          :string
 #  logo_image            :string

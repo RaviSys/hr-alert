@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_100821) do
+ActiveRecord::Schema.define(version: 2019_03_28_123416) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -37,6 +37,9 @@ ActiveRecord::Schema.define(version: 2019_03_28_100821) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "industry_id"
+    t.integer "company_domains_count"
+    t.integer "job_posts_count"
+    t.integer "contacts_count"
     t.index ["industry_id"], name: "index_companies_on_industry_id"
   end
 
@@ -65,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_100821) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "company_domains_count"
   end
 
   create_table "images", force: :cascade do |t|
@@ -103,6 +107,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_100821) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "job_type"
+    t.integer "job_post_keywords_count"
     t.index ["company_id"], name: "index_job_posts_on_company_id"
   end
 
@@ -112,6 +117,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_100821) do
     t.string "info_source"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "job_post_keywords_count"
   end
 
   create_table "taggings", force: :cascade do |t|

@@ -10,9 +10,10 @@ end
 #
 # Table name: domains
 #
-#  id          :integer          not null, primary key
-#  description :text
-#  name        :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id                    :integer          not null, primary key
+#  company_domains_count :integer
+#  description           :text
+#  name                  :string
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
 #
