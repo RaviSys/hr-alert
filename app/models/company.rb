@@ -1,11 +1,11 @@
 class Company < ApplicationRecord
+  include Validatable
   has_many :company_domains
   has_many :domains, through: :company_domains
   has_many :job_posts
   has_many :contacts
   has_many :images, as: :imageable
   belongs_to :industry, optional: true
-  validates :name, presence: true, uniqueness: true
 end
 
 # == Schema Information

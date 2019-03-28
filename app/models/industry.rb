@@ -1,6 +1,6 @@
 class Industry < ApplicationRecord
+  include Validatable
   has_many :companies
-  validates :name, presence: true, uniqueness: true
 end
 
 # == Schema Information
