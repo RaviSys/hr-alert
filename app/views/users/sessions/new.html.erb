@@ -1,26 +1,28 @@
-<div class="text-center">  
-  <p class="lead">Are you existing user? </p>
-  <h2 class="text-muted mb-4 mt-2">Log In</h2>
+<p class="lead text-center">Are you existing user? </p>
+<div class="card rounded-0 card-custom">
+  <div class="card-body">
+    <h2 class="text-muted mb-4 mt-2 text-center">Log In</h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control form-control-lg rounded-0" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control form-control-lg rounded-0" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="form-group">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="form-group text-center">
+        <%= f.submit "Log in", class: "btn btn-success btn-lg rounded-0" %>
+      </div>
+    <% end %>
+  </div>
 </div>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: "form-control form-control-lg rounded-0" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, class: "form-control form-control-lg rounded-0" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="form-group">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="form-group text-center">
-    <%= f.submit "Log in", class: "btn btn-success btn-lg rounded-0" %>
-  </div>
-<% end %>
