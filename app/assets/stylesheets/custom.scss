@@ -6,3 +6,17 @@ body {
     min-height: 465px;
   }
 }
+.bg-custom {
+  background-color: #2b3eca !important;
+}
+.navbar-primary .navbar-brand, .nav-link { 
+  color: #fff !important; 
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 60px;
+  line-height: 60px;
+  background-color: #12131b;
+}
