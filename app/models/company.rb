@@ -6,6 +6,7 @@ class Company < ApplicationRecord
   has_many :contacts
   has_many :images, as: :imageable
   belongs_to :industry, optional: true, counter_cache: true
+  belongs_to :user, optional: true
 end
 
 # == Schema Information
@@ -40,8 +41,10 @@ end
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #  industry_id           :integer
+#  user_id               :integer
 #
 # Indexes
 #
 #  index_companies_on_industry_id  (industry_id)
+#  index_companies_on_user_id      (user_id)
 #
