@@ -16,7 +16,11 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  min-height: 60px;
+  height: 60px;
   line-height: 60px;
   background-color: #12131b;
+}
+.btn-custom, .btn-custom:hover {
+  background-color: #2b3eca !important;
+  border-color: #2b3eca;
 }
