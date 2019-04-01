@@ -1,4 +1,7 @@
 class Company < ApplicationRecord
+
+  STATUS = ['in_review', 'approved', 'rejected', 'submitted']
+
   include Validatable
   validates :contact_one, :city, :state, :country, :address, presence: true
   validates :email, presence: true, uniqueness: true
@@ -9,6 +12,19 @@ class Company < ApplicationRecord
   has_many :images, as: :imageable
   belongs_to :industry, optional: true, counter_cache: true
   belongs_to :user, optional: true
+
+  before_create :set_default_status
+
+  STATUS.each do |status|
+    define_method "#{status}?" do 
+      self.status == "#{status}"
+    end
+  end
+
+  def set_default_status
+    self.status = 'submitted'
+  end
+
 end
 
 # == Schema Information
@@ -36,6 +52,7 @@ end
 #  longitude             :float
 #  name                  :string
 #  state                 :string
+#  status                :string
 #  twitter_url           :string
 #  website               :string
 #  year_of_establishment :date
