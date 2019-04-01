@@ -1,0 +1,107 @@
+<%= form_for([:user, @company]) do |f| %>
+  <%= render "partials/error", object: @company %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  
+  <div class="form-group row">
+    <div class="col-md-6">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control rounded-0" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-6">
+      <%= f.label :company_email %>
+      <%= f.email_field :email, class: "form-control rounded-0" %>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :company_website %>
+      <%= f.text_field :website, class: "form-control rounded-0" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-4">
+      <%= f.label :permanent_contact %>
+      <%= f.email_field :contact_one, class: "form-control rounded-0" %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :alternate_contact %>
+      <%= f.text_field :contact_two, class: "form-control rounded-0" %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :fax %>
+      <%= f.text_field :fax, class: "form-control rounded-0" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-12 mb-3">
+      <%= f.label :address %>
+      <%= f.text_field :address, class: "form-control rounded-0" %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :city %>
+      <%= f.text_field :city, class: "form-control rounded-0" %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :state %>
+      <%= f.text_field :state, class: "form-control rounded-0" %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :country %>
+      <%= f.text_field :country, class: "form-control rounded-0" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-6 mb-3">
+      <%= f.label :facebook_url %>
+      <%= f.text_field :facebook_url, class: "form-control rounded-0" %>
+    </div>
+    <div class="col-md-6 mb-3">
+      <%= f.label :twitter_url %>
+      <%= f.text_field :twitter_url, class: "form-control rounded-0" %>
+    </div>
+    <div class="col-md-6 mb-3">
+      <%= f.label :youtube_url %>
+      <%= f.text_field :youtube_url, class: "form-control rounded-0" %>
+    </div>
+    <div class="col-md-6 mb-3">
+      <%= f.label :google_plus_url %>
+      <%= f.text_field :google_plus_url, class: "form-control rounded-0" %>
+    </div>
+    <div class="col-md-6 mb-3">
+      <%= f.label :linkedin_url %>
+      <%= f.text_field :linkedin_url, class: "form-control rounded-0" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-6">
+      <%= f.label :company_size %>
+      <%= f.text_field :company_size, class: "form-control rounded-0" %>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :year_of_establishment %>
+      <%= f.text_field :year_of_establishment, class: "form-control rounded-0" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-6">
+      <%= f.label :cover_image %><br>
+      <%= f.file_field :cover_image %>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :logo_image %><br>
+      <%= f.file_field :logo_image %>
+    </div>
+  </div>
+
+  <div class="form-group mt-5">
+    <%= f.submit class: "btn btn-success rounded-0 btn-lg" %>
+    <%= link_to "Cancel", user_dashboard_path, class: "btn btn-success rounded-0 btn-lg" %>
+  </div>
+
+<% end %>

@@ -1,5 +1,7 @@
 class Company < ApplicationRecord
   include Validatable
+  validates :contact_one, :city, :state, :country, :address, presence: true
+  validates :email, presence: true, uniqueness: true
   has_many :company_domains
   has_many :domains, through: :company_domains
   has_many :job_posts

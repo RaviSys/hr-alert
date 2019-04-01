@@ -7,6 +7,7 @@
             <div class="card-body">
               <p class="lead">Hi! <span class="badge badge-success"><%= @user.email%></span> you have not created your company yet just because your profile is not completed yet. Your dashboard will display stats once you successfully create your company. Please complete your profile first.</p>
               <%= link_to "Complete your profile", user_profile_edit_path, class: "btn btn-primary btn-lg rounded-0 btn-custom" %>
+              <%= link_to "Create Your Company", new_user_company_path, class: "btn btn-primary btn-lg rounded-0 btn-custom" %>
             </div>
           </div>
         </div>

@@ -1,0 +1,10 @@
+<div id="error_explanation">
+  <% if object.errors.present? %>
+    <h4 class="text-muted font-weight-bold"><%= object.errors.count %> erorrs prohibated this company from being saved</h4>
+    <ul>  
+      <% object.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end%>
+</div>
