@@ -25,6 +25,26 @@ class Company < ApplicationRecord
     self.status = 'submitted'
   end
 
+  def job_posts
+    self.job_posts
+  end
+
+  def active_job_posts
+    self.job_posts.where(status: 'active')
+  end
+
+  def inactive_job_posts
+    self.job_posts.where(status: 'inactive')
+  end
+
+  def published_job_posts
+    self.job_posts.where(status: 'published')
+  end
+
+  def pending_job_posts
+    self.job_posts.where(status: 'pending')
+  end
+
 end
 
 # == Schema Information

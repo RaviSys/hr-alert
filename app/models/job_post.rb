@@ -1,4 +1,7 @@
 class JobPost < ApplicationRecord
+
+  STATUS = ['pending', 'published', 'active', 'inactive']
+
   include Companyable
   has_many :job_post_keywords
   has_many :keywords, through: :job_post_keywords
