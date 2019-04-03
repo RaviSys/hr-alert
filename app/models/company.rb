@@ -1,6 +1,7 @@
 class Company < ApplicationRecord
 
   STATUS = ['in_review', 'approved', 'rejected', 'submitted']
+  JP_STATUS = ['active', 'inactive', 'published', 'pending']
 
   include Validatable
   validates :contact_one, :city, :state, :country, :address, presence: true
@@ -21,28 +22,18 @@ class Company < ApplicationRecord
     end
   end
 
+  JP_STATUS.each do |jp_status| 
+    define_method "#{jp_status}_job_posts" do 
+      job_posts.where(status: "#{jp_status}")
+    end
+  end
+
   def set_default_status
     self.status = 'submitted'
   end
 
-  def job_posts
-    self.job_posts
-  end
-
-  def active_job_posts
-    self.job_posts.where(status: 'active')
-  end
-
-  def inactive_job_posts
-    self.job_posts.where(status: 'inactive')
-  end
-
-  def published_job_posts
-    self.job_posts.where(status: 'published')
-  end
-
-  def pending_job_posts
-    self.job_posts.where(status: 'pending')
+  def all_job_posts
+    job_posts
   end
 
 end
