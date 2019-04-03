@@ -1,9 +1,7 @@
 class Company < ApplicationRecord
 
-  STATUS = ['in_review', 'approved', 'rejected', 'submitted']
-  JP_STATUS = ['active', 'inactive', 'published', 'pending']
-
   include Validatable
+  include Statusable
   validates :contact_one, :city, :state, :country, :address, presence: true
   validates :email, presence: true, uniqueness: true
   has_many :company_domains
@@ -15,18 +13,6 @@ class Company < ApplicationRecord
   belongs_to :user, optional: true
 
   before_create :set_default_status
-
-  STATUS.each do |status|
-    define_method "#{status}?" do 
-      self.status == "#{status}"
-    end
-  end
-
-  JP_STATUS.each do |jp_status| 
-    define_method "#{jp_status}_job_posts" do 
-      job_posts.where(status: "#{jp_status}")
-    end
-  end
 
   def set_default_status
     self.status = 'submitted'
