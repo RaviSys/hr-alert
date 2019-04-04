@@ -95,6 +95,15 @@
             <div class="card rounded-0">
               <div class="card-body">
                 <% if @company.job_posts.present? %>
+                  <h5 class="text-muted font-weight-bold">Listing company's job post</h5>
+                  <div class="list-group">
+                    <% @company.job_posts.each do |job_post| %>
+                      <%= link_to job_post.job_title, user_job_post_path(job_post), class: 'list-group-item list-group-item-action' %>
+                    <% end %>
+                  </div>
+                  <%= link_to new_user_job_post_path, class: "btn btn-primary rounded-0 btn-custom mt-3" do %>
+                    <i class="fas fa-plus mr-2"></i> New Job Post
+                  <% end %>
                 <% else %>
                   <p class="lead text-muted">Your company haven't created any job post yet. Please create first job post for your company. </p>
                   <%= link_to new_user_job_post_path, class: "btn btn-primary rounded-0 btn-custom" do %>

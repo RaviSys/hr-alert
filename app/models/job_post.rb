@@ -17,6 +17,10 @@ class JobPost < ApplicationRecord
     self.status = 'pending'
   end
 
+  def fresher_allowed?
+    self.fresher_allowed == true
+  end
+
 end
 
 # == Schema Information

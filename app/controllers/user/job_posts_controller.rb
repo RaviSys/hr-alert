@@ -1,5 +1,6 @@
 class User::JobPostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_job_post, only: [:show, :edit]
   before_action :current_company
 
   def index
