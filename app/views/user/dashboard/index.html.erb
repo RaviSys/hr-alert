@@ -38,11 +38,11 @@
                     <p class="mb-1"><span class="text-muted font-weight-bold">State:</span> <%= @company.state || 'NA' %></p>
                     <p class="mb-3"><span class="text-muted font-weight-bold">Country:</span> <%= @company.country || 'NA' %></p>
                     <%= link_to edit_address_info_user_company_path(@company), class: "btn btn-primary btn-custom rounded-0", data: { toggle: "modal", target: "#addressModal", remote: true } do %>
-                      <i class="fas fa-pencil-alt"></i> Edit Address Information
+                      <i class="fas fa-pencil-alt mr-2"></i> Edit Address Information
                     <% end %>
                   <% else %>
                     <%= link_to edit_address_info_user_company_path(@company), class: "btn btn-primary btn-custom rounded-0", data: { toggle: "modal", target: "#addressModal", remote: true } do %>
-                      <i class="fas fa-plus"></i> Add Address Information
+                      <i class="fas fa-plus mr-2"></i> Add Address Information
                     <% end %>
                   <% end %>
                 </div>
@@ -80,11 +80,11 @@
                       <a href="<%= @company.twitter_url %>" target="_blank"><%= @company.twitter_url || 'NA' %></a>
                     </p>
                     <%= link_to edit_social_info_user_company_path(@company), class: "btn btn-primary btn-custom rounded-0", data: { toggle: "modal", target: "#socialInfoModal", remote: true } do %>
-                      <i class="fas fa-pencil-alt"></i> Edit Social Links
+                      <i class="fas fa-pencil-alt mr-2"></i> Edit Social Links
                     <% end %>
                   <% else %>
                     <%= link_to edit_social_info_user_company_path(@company), class: "btn btn-primary btn-custom rounded-0", data: { toggle: "modal", target: "#socialInfoModal", remote: true } do %>
-                      <i class="fas fa-plus"></i> Add Social Links
+                      <i class="fas fa-plus mr-2"></i> Add Social Links
                     <% end %>
                   <% end %>
                 </div>
@@ -92,6 +92,17 @@
             </div>
           </div>
           <div class="col-md-6">
+            <div class="card rounded-0">
+              <div class="card-body">
+                <% if @company.job_posts.present? %>
+                <% else %>
+                  <p class="lead text-muted">Your company haven't created any job post yet. Please create first job post for your company. </p>
+                  <%= link_to new_user_job_post_path, class: "btn btn-primary rounded-0 btn-custom" do %>
+                    <i class="fas fa-plus mr-2"></i> New Job Post
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
       <% end%>

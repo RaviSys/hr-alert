@@ -1,0 +1,40 @@
+<%= form_for([:user, @job_post]) do |f| %>
+  <%= render "partials/error", object: @job_post %>
+
+  <div class="form-group">
+    <%= f.label :job_title %>
+    <%= f.text_field :job_title, class: "form-control rounded-0" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :job_description %>
+    <%= f.text_area :job_description, rows: "6", class: "form-control rounded-0" %>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-6">
+      <%= f.label :job_type %>
+      <%= f.select :job_type, options_for_select(JobPost::JOB_TYPE, selected: @job_post.job_type), {prompt: 'Select Job Type'}, {class: "form-control rounded-0"} %>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :required_experience %>
+      <%= f.select :required_experience, options_for_select(JobPost::EXPERIENCE_REQUIRED, selected: @job_post.required_experience), {prompt: 'Select Required Experience'}, {class: "form-control rounded-0"} %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.check_box :fresher_allowed %>
+    <%= f.label :fresher_allowed %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :cover_image %><br>
+    <%= f.file_field :cover_image %>
+  </div>
+
+  <div class="form-group mt-5">
+    <%= f.submit class: "btn btn-success rounded-0 btn-lg" %>
+    <%= link_to "Cancel", user_dashboard_path, class: "btn btn-success rounded-0 btn-lg" %>
+  </div>
+
+<% end %>

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
         patch :update_social_info
       end
     end
+    resources :job_posts
   end
 
 end
