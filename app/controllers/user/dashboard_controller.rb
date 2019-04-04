@@ -3,6 +3,7 @@ class User::DashboardController < ApplicationController
   
   def index
     @user = current_user
+    @company  = current_user.company if current_user.company.present? 
   end
 
 end

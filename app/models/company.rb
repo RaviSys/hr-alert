@@ -2,8 +2,8 @@ class Company < ApplicationRecord
 
   include Validatable
   include Statusable
-  validates :contact_one, :city, :state, :country, :address, presence: true
-  validates :email, presence: true, uniqueness: true
+  # validates :contact_one, :city, :state, :country, :address, presence: true
+  validates :email, :contact_one, presence: true, uniqueness: true
   has_many :company_domains
   has_many :domains, through: :company_domains
   has_many :job_posts
@@ -20,6 +20,14 @@ class Company < ApplicationRecord
 
   def all_job_posts
     job_posts
+  end
+
+  def address_exists?
+    address.present? || city.present? || state.present? || country.present?
+  end
+
+  def social_links_exists?
+    facebook_url.present? || google_plus_url.present? || twitter_url.present? || linkedin_url.present? || youtube_url.present?
   end
 
 end
