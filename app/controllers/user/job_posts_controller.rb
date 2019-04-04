@@ -14,6 +14,12 @@ class User::JobPostsController < ApplicationController
   def show;end
 
   def create
+    @job_post = @company.job_posts.create(job_post_params)
+    if @job_post.save
+      redirect_to user_dashboard_path, flash: { success: 'Job post has been created successfully' }
+    else
+      render :new
+    end
   end
 
   private

@@ -7,10 +7,11 @@ class JobPost < ApplicationRecord
   include Companyable
   has_many :job_post_keywords
   has_many :keywords, through: :job_post_keywords
-  validates :job_title, :job_description, :eligibility_criteria,
-   :required_experience, presence: true
+  validates :job_title, :job_description, :required_experience, presence: true
 
   before_create :set_default_status
+
+  acts_as_taggable_on :job_keywords
 
   def set_default_status
     self.status = 'pending'

@@ -26,10 +26,15 @@
     <%= f.check_box :fresher_allowed %>
     <%= f.label :fresher_allowed %>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :cover_image %><br>
     <%= f.file_field :cover_image %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label 'Keywords(Provide some comma separated keyword for your post)' %>
+    <%= f.text_field :job_keyword_list, class: "form-control rounded-0", placeholder: "Comma separated keywords", id: "job_post_keyword_list", value: @job_post.job_keyword_list.join(", ") %>
   </div>
 
   <div class="form-group mt-5">
@@ -38,3 +43,19 @@
   </div>
 
 <% end %>
+
+<script type="text/javascript">
+  $(function () {
+    $('#job_post_keyword_list').selectize({
+      plugins: ['remove_button'],
+      delimiter: ',',
+      persist: false,
+      create: function(input) {
+        return {
+          value: input,
+          text: input
+        }
+      }
+    });
+  });
+</script>
