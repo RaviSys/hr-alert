@@ -15,5 +15,9 @@ module Statusable
         job_posts.where(status: "#{jp_status}")
       end
     end
+
+    scope :approved_companies, -> { where(status: 'approved') }
+    scope :rejected_companies, -> { where(status: 'rejected') }
+    scope :in_review_companies, -> { where(status: 'in_review') }
   end
 end
