@@ -32,22 +32,58 @@
                 </p>
                 <div class="mt-4 mb-4">
                   <% if @company.address_exists? %>
-                    <%= link_to 'javascript:void(0)', class: "btn btn-primary btn-custom rounded-0" do %>
-                      <i class="fas fa-pencil"></i> Edit Address Information
+                    <hr>
+                    <p class="mb-1 mt-2"><span class="text-muted font-weight-bold">Address:</span> <%= @company.address || 'NA' %></p>
+                    <p class="mb-1"><span class="text-muted font-weight-bold">City:</span> <%= @company.city || 'NA' %></p>
+                    <p class="mb-1"><span class="text-muted font-weight-bold">State:</span> <%= @company.state || 'NA' %></p>
+                    <p class="mb-3"><span class="text-muted font-weight-bold">Country:</span> <%= @company.country || 'NA' %></p>
+                    <%= link_to edit_address_info_user_company_path(@company), class: "btn btn-primary btn-custom rounded-0", data: { toggle: "modal", target: "#addressModal", remote: true } do %>
+                      <i class="fas fa-pencil-alt"></i> Edit Address Information
                     <% end %>
                   <% else %>
-                    <%= link_to 'javascript:void(0)', class: "btn btn-primary btn-custom rounded-0" do %>
+                    <%= link_to edit_address_info_user_company_path(@company), class: "btn btn-primary btn-custom rounded-0", data: { toggle: "modal", target: "#addressModal", remote: true } do %>
                       <i class="fas fa-plus"></i> Add Address Information
                     <% end %>
                   <% end %>
                 </div>
                 <div class="mt-4 mb-4">
                   <% if @company.social_links_exists? %>
-                    <%= link_to 'javascript:void(0)', class: "btn btn-primary btn-custom rounded-0" do %>
-                      <i class="fas fa-pencil"></i> Edit Social Links
+                    <hr>
+                    <p class="mb-1 mt-2">
+                      <span class="text-muted font-weight-bold">
+                        <i class="fab fa-facebook-square"></i> 
+                      </span> 
+                      <a href="<%= @company.facebook_url %>" target="_blank"><%= @company.facebook_url || 'NA' %></a>
+                    </p>
+                    <p class="mb-1">
+                      <span class="text-muted font-weight-bold">
+                        <i class="fab fa-linkedin"></i> 
+                      </span> 
+                      <a href="<%= @company.linkedin_url %>" target="_blank"><%= @company.linkedin_url || 'NA' %></a>
+                    </p>
+                    <p class="mb-1">
+                      <span class="text-muted font-weight-bold">
+                        <i class="fab fa-youtube-square"></i> 
+                      </span> 
+                      <a href="<%= @company.youtube_url %>" target="_blank"><%= @company.youtube_url || 'NA' %></a>
+                    </p>
+                    <p class="mb-1">
+                      <span class="text-muted font-weight-bold">
+                        <i class="fab fa-google-plus-square"></i> 
+                      </span> 
+                      <a href="<%= @company.google_plus_url %>" target="_blank"><%= @company.google_plus_url || 'NA' %></a>
+                    </p>
+                    <p class="mb-3">
+                      <span class="text-muted font-weight-bold">
+                        <i class="fab fa-twitter-square"></i> 
+                      </span> 
+                      <a href="<%= @company.twitter_url %>" target="_blank"><%= @company.twitter_url || 'NA' %></a>
+                    </p>
+                    <%= link_to edit_social_info_user_company_path(@company), class: "btn btn-primary btn-custom rounded-0", data: { toggle: "modal", target: "#socialInfoModal", remote: true } do %>
+                      <i class="fas fa-pencil-alt"></i> Edit Social Links
                     <% end %>
                   <% else %>
-                    <%= link_to 'javascript:void(0)', class: "btn btn-primary btn-custom rounded-0" do %>
+                    <%= link_to edit_social_info_user_company_path(@company), class: "btn btn-primary btn-custom rounded-0", data: { toggle: "modal", target: "#socialInfoModal", remote: true } do %>
                       <i class="fas fa-plus"></i> Add Social Links
                     <% end %>
                   <% end %>
@@ -61,4 +97,10 @@
       <% end%>
     </div>
   </div>
+</div>
+
+<div class="modal fade" id="addressModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+</div>
+
+<div class="modal fade" id="socialInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 </div>

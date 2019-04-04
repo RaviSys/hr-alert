@@ -1,0 +1,34 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content rounded-0">
+    <div class="modal-header modal-header-custom">
+      <h5 class="modal-title" id="addressModalLongTitle">Update Company Address Information</h5>
+      <button type="button" class="close close-custom" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <%= form_for @company, url: :update_address_info_user_company, method: :patch do |f| %>
+      <div class="modal-body">
+        <div class="form-group">
+          <%= f.label :address %>
+          <%= f.text_field :address, class: "form-control rounded-0" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :city %>
+          <%= f.text_field :city, class: "form-control rounded-0" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :state %>
+          <%= f.text_field :state, class: "form-control rounded-0" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :country %>
+          <%= f.text_field :country, class: "form-control rounded-0" %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Close</button>
+        <%= f.submit "Save Address Info", class: "btn btn-primary btn-custom rounded-0" %>
+      </div>
+    <% end %>
+  </div>
+</div>

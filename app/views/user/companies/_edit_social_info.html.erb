@@ -1,0 +1,38 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content rounded-0">
+    <div class="modal-header modal-header-custom">
+      <h5 class="modal-title" id="socialInfoModalLongTitle">Update Company Social Information</h5>
+      <button type="button" class="close close-custom" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <%= form_for @company, url: :update_social_info_user_company, method: :patch do |f| %>
+      <div class="modal-body">
+        <div class="form-group">
+          <%= f.label :facebook_url %>
+          <%= f.text_field :facebook_url, class: "form-control rounded-0" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :twitter_url %>
+          <%= f.text_field :twitter_url, class: "form-control rounded-0" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :youtube_url %>
+          <%= f.text_field :youtube_url, class: "form-control rounded-0" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :google_plus_url %>
+          <%= f.text_field :google_plus_url, class: "form-control rounded-0" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :linkedin_url %>
+          <%= f.text_field :linkedin_url, class: "form-control rounded-0" %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Close</button>
+        <%= f.submit "Save Social Info", class: "btn btn-primary btn-custom rounded-0" %>
+      </div>
+    <% end %>
+  </div>
+</div>

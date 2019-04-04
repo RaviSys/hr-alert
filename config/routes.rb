@@ -11,7 +11,14 @@ Rails.application.routes.draw do
     get 'dashboard' => 'dashboard#index'
     get 'profile_edit' => 'profile#edit'
     patch 'profile_update' => 'profile#update_account'
-    resources :companies, path: :company
+    resources :companies, path: :company do 
+      member do 
+        get :edit_address_info
+        patch :update_address_info
+        get :edit_social_info
+        patch :update_social_info
+      end
+    end
   end
 
 end
