@@ -1,0 +1,20 @@
+<div class="modal fade" tabindex="-1" role="dialog" id="exampleModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-0">
+      <div class="modal-header text-center warning-modal-header">
+        <h5 class="modal-title">Warning</h5>
+        <button type="button" class="close close-custom" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <%= image_tag 'warning.png', style: 'width:100px;', class: 'mb-3' %>
+        <p class="lead text-muted">This job post has not been published yet. It is in <span class="badge badge-danger"><%= job_post.status.capitalize %></span> state. Any job posting with <span class="badge badge-danger">Pending</span> or <span class="badge badge-danger">Inactive</span> status will not be displayed to outside users. Do you want to publish this job post now? </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Not Now</button>
+        <%= link_to "Publish Now", publish_job_post_user_job_post_path(job_post), method: :patch, class: 'btn btn-primary brn-custom rounded-0' %>
+      </div>
+    </div>
+  </div>
+</div>

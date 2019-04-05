@@ -19,7 +19,11 @@ Rails.application.routes.draw do
         patch :update_social_info
       end
     end
-    resources :job_posts
+    resources :job_posts do 
+      member do 
+        patch :publish_job_post
+      end
+    end
   end
 
 end

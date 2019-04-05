@@ -22,6 +22,18 @@
               <span class="font-weight-bold text-muted font-14">Note: Freshers can also apply for this position.</span>
             <% end %>
           </p>
+          <% if @job_post.status == 'pending' %>
+            <div class="alert alert-danger rounded-0 shadow mb-4" role="alert">
+              <h4 class="alert-heading"><%= image_tag 'warning.png', width: '30' %> Warning!</h4>
+              <p>The job post is in <span class="badge badge-danger">Pending</span> state. Only published job post will be displayed to outside users.</p>
+              <hr>
+              <p class="mb-0"><%= link_to "Click here to publish this job post", publish_job_post_user_job_post_path(@job_post), method: :patch, class: 'btn btn-primary brn-custom rounded-0' %></p>
+            </div>
+          <% else %>
+            <p class="mt-4 mb-3">
+              <span class="font-weight-bold">Status: <span class="badge badge-success"><%= @job_post.status.capitalize %></span></span>
+            </p>
+          <% end %>
           <%= link_to "Edit Job Post", edit_user_job_post_path(@job_post), class: "btn btn-secondary rounded-0" %>
           <%= link_to "Back", user_dashboard_path, class: "btn btn-outline-primary rounded-0" %>
         </div>
@@ -29,3 +41,15 @@
     </div>
   </div>
 </div>
+
+<%#= render "user/job_posts/warning_modal", job_post: @job_post %>
+
+<script>
+  $(function(){
+    <% if @job_post.status == 'pending' %>
+      $(window).on('load',function(){
+        $('#exampleModal').modal('show');
+      });
+    <% end %>
+  });
+</script>
