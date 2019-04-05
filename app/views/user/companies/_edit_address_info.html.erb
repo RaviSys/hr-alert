@@ -7,22 +7,24 @@
       </button>
     </div>
     <%= form_for @company, url: :update_address_info_user_company, method: :patch do |f| %>
+      <%= f.hidden_field :latitude, id: :latitude %>
+      <%= f.hidden_field :longitude, id: :longitude %>
       <div class="modal-body">
         <div class="form-group">
           <%= f.label :address %>
-          <%= f.text_field :address, class: "form-control rounded-0" %>
+          <%= f.text_field :address, class: "form-control rounded-0", id: "autocomplete", onFocus: "geolocate()" %>
         </div>
         <div class="form-group">
           <%= f.label :city %>
-          <%= f.text_field :city, class: "form-control rounded-0" %>
+          <%= f.text_field :city, class: "form-control rounded-0", id: :locality, disabled: :true %>
         </div>
         <div class="form-group">
           <%= f.label :state %>
-          <%= f.text_field :state, class: "form-control rounded-0" %>
+          <%= f.text_field :state, class: "form-control rounded-0", id: :administrative_area_level_1, disabled: true %>
         </div>
         <div class="form-group">
           <%= f.label :country %>
-          <%= f.text_field :country, class: "form-control rounded-0" %>
+          <%= f.text_field :country, class: "form-control rounded-0", id: :country, disabled: true %>
         </div>
       </div>
       <div class="modal-footer">
@@ -32,3 +34,8 @@
     <% end %>
   </div>
 </div>
+
+<script 
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFBYM37YGMTdgkEp9fipPljSjprTDZL8Y&libraries=places&callback=initAutocomplete"
+  async defer>
+</script>

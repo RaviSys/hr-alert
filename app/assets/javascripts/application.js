@@ -16,3 +16,4 @@
 //= require bootstrap
 //= require selectize
 //= require activestorage
+//= require autocomplete
