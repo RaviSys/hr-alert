@@ -3,6 +3,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
+      ContactNotificationMailer.send_contact_notification(@contact).deliver_now
       redirect_to request.referer, flash: { success: 'Thank you for contacting us. Company person will contact you soon.' }
     else
       redirect_to request.referer, flash: { notice: 'It seems you have already submitted contact info with same email or contact number.' }

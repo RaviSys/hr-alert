@@ -71,3 +71,4 @@ gem 'cocoon'
 gem 'cancancan', '~> 2.3.0'
 gem 'kaminari'
 gem 'acts-as-taggable-on', '~> 6.0'
+gem "letter_opener", :group => :development
