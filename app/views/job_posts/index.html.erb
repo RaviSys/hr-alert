@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-5 mb-5">
+      <div class="card rounded-0 border-left-site">
+        <div class="card-body">
+          <h3 class="font-weight-bold text-muted">Listing Job Posts</h3>
+        </div>
+      </div>
+      <div class="mt-4">
+        <% @job_posts.each do |job_post| %>
+          <div class="card rounded-0 mb-3">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-3">
+                  <%= image_tag 'werehiring.png', class: 'img-fluid jp-img' %>
+                </div>
+                <div class="col-md-9">
+                  <h4 class="text-muted"><%= job_post.job_title %><small class="badge badge-success ml-2 b-appended"><%= job_post.status.titleize %></small></h4>
+                  <h6 class="text-muted font-14 font-weight-bold">@ <span class="text-site"><%= link_to job_post.company.name, company_path(job_post.company) %></span></h6>
+                  <p class="font-14"><%= truncate(job_post.job_description, length: 200) %> <%= link_to "Read Full Job Description", user_job_post_path(job_post) %> </p>
+                  <p class="font-14 font-weight-bold text-site">
+                    <% job_post.job_keywords.each do |keyword| %>
+                      #<%= keyword %>
+                    <% end %>    
+                  </p>
+                  <%= link_to job_post, class: 'btn btn-primary btn-sm rounded-0' do %>
+                    <i class="fas fa-eye mr-1"></i> View
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <%= paginate @job_posts %>
+      </div>
+    </div>
+  </div>
+</div>

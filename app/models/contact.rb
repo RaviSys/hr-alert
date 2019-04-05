@@ -1,6 +1,7 @@
 class Contact < ApplicationRecord
   include Companyable
-  validates :name, :email, :contact_number, :message, presence: true
+  validates :name, :message, presence: true
+  validates :email, :contact_number, presence: true, uniqueness: true
 end
 
 # == Schema Information
