@@ -6,6 +6,11 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
+
+  def name
+    "#{self.first_name} #{self.last_name}".titleize
+  end
+
 end
 
 # == Schema Information

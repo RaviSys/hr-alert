@@ -12,6 +12,9 @@
           </div>
         </div>
       <% else %>
+        <% unless @company.approved? %>
+          <%= render 'user/dashboard/alert_notice', company: @company %>
+        <% end %>
         <div class="row mt-5 mb-5">
           <div class="col-md-6">
             <div class="card rounded-0">
