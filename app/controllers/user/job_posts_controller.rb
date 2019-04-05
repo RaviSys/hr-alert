@@ -4,7 +4,7 @@ class User::JobPostsController < ApplicationController
   before_action :current_company
 
   def index
-    @job_posts = @company.job_posts
+    @job_posts = @company.job_posts.order(created_at: :desc)
   end
 
   def new
