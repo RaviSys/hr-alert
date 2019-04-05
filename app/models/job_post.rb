@@ -5,6 +5,7 @@ class JobPost < ApplicationRecord
   EXPERIENCE_REQUIRED = ['6 Months - 1 Year', '1 Year - 2 Year', '2 Year - 3 Year', '3 Year - 5 Year', '5 Year - 8 Year', '8+ Year']
 
   include Companyable
+  paginates_per 10
   has_many :job_post_keywords
   has_many :keywords, through: :job_post_keywords
   validates :job_title, :job_description, :required_experience, presence: true
