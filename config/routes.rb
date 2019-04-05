@@ -28,5 +28,6 @@ Rails.application.routes.draw do
 
   resources :companies
   resources :job_posts, path: :jobposts
+  resources :contacts
 
 end
