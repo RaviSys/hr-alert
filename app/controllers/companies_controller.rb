@@ -5,9 +5,9 @@ class CompaniesController < ApplicationController
 
   def index
     if params[:city].present?
-      @companies = Company.where(city: params[:city])
+      @companies = Company.where(city: params[:city]).order(name: :asc).page params[:page]
     else
-      @companies = Company.all
+      @companies = Company.order(name: :asc).page params[:page]
     end
   end
 

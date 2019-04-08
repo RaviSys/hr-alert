@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row mt-5 mb-5">
+    <div class="col-md-7">
+      <div class="card rounded-0">
+        <div class="card-body">
+          <h4 class="text-muted mb-3">Search jobs by choice</h4>
+          <%= form_for :search_job, url: '#', method: 'get' do |f| %>
+            <div class="form-group row">
+              <div class="col-md-6">
+                <%= f.text_field :keyword, class: 'form-control rounded-0', placeholder: 'Keywords' %>
+              </div>
+              <div class="col-md-6">
+                <%= f.text_field :city, class: 'form-control rounded-0', placeholder: 'City' %>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-6">
+                <%= f.text_field :experience, class: 'form-control rounded-0', placeholder: 'Experience in years' %>
+              </div>
+              <div class="col-md-6">
+                <button type="submit" class='btn btn-primary btn-custom'><i class="fas fa-search"></i> Search</button>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="card rounded-0">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 col-6 text-center">
+              <h5 class="text-muted font-weight-bold">Total<br> Companies</h5>
+              <h1 class="mt-4 font-60 font-weight-bold text-site"><%= @companies.size %></h1>
+            </div>
+            <div class="col-md-6 col-6 text-center">
+              <h5 class="text-muted font-weight-bold">Total<br> Cities</h5>
+              <h1 class="mt-4 font-60 font-weight-bold text-site"><%= @cities.size %></h1>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>
