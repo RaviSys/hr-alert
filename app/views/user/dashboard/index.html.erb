@@ -118,6 +118,26 @@
                 <% end %>
               </div>
             </div>
+            <div class="row mt-5">
+              <div class="col-md-6">
+                <div class="card rounded-0">
+                  <div class="card-body text-center">
+                    <h5 class="text-muted font-weight-bold">Total<br> Jobs Posted</h5>
+                    <h1 class="mt-4 text-site font-70 font-weight-bold"><%= @company.job_posts_count %></h1>
+                    <%= link_to "View All Job Posts", user_job_posts_path, class: 'btn btn-light-site' %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card rounded-0">
+                  <div class="card-body text-center">
+                    <h5 class="text-muted font-weight-bold">Total<br> Enquries Received</h5>
+                    <h1 class="mt-4 text-site font-70 font-weight-bold"><%= @company.contacts_count %></h1>
+                    <%= link_to "View Contact Enquries", user_contacts_path, class: 'btn btn-light-site' %>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       <% end%>
