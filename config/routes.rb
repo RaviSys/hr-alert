@@ -24,6 +24,7 @@ Rails.application.routes.draw do
         patch :publish_job_post
       end
     end
+    resources :contacts
   end
 
   resources :companies
