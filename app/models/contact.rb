@@ -1,5 +1,6 @@
 class Contact < ApplicationRecord
   include Companyable
+  has_many :email_contents, as: :emailable
   validates :name, :message, presence: true
   validates :email, :contact_number, presence: true, uniqueness: true
 end

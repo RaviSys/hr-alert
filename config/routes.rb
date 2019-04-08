@@ -24,7 +24,11 @@ Rails.application.routes.draw do
         patch :publish_job_post
       end
     end
-    resources :contacts
+    resources :contacts do 
+      member do 
+        post :send_email_to_contactee
+      end
+    end
   end
 
   resources :companies

@@ -1,0 +1,7 @@
+<div style="width:70%;margin:0 auto;padding: 4%;border: 1px solid #a1adea;background-color: #306b88eb;color: #fff;">
+  <h1>HRAlert</h1>
+  <h3>Hi <%= @email_content.contact.name %> thank you for showing your interest within us. </h3>
+  <p><%= @email_content.content %>.</p>
+  <h3>Thanks</h3>
+  <p><%= @email_content.sender.split("@")[0].capitalize %> | HRAlert</p>
+</div>

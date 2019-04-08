@@ -20,6 +20,24 @@
     <div class="col-md-7">
       <div class="card rounded-0">
         <div class="card-body">
+          <%= form_for :email_content, url: :send_email_to_contactee_user_contact, method: :post do |f| %>
+            <%= f.hidden_field :sender, value: current_user.email %>
+            <div class="form-group">
+              <%= f.label :email_to %>
+              <%= f.email_field :receiver, value: @contact.email, class: 'form-control rounded-0', required: true %>
+            </div>
+            <div class="form-group">
+              <%= f.label :subject %>
+              <%= f.text_field :subject, class: 'form-control rounded-0', required: true %>
+            </div>
+            <div class="form-group">
+              <%= f.label :content %>
+              <%= f.text_area :content, class: 'form-control rounded-0', rows: '9', required: true %>
+            </div>
+            <div class="form-group">
+              <%= f.submit 'Send Email', class: 'btn btn-primary btn-custom rounded-0' %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

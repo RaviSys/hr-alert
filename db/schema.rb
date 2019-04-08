@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_01_111603) do
+ActiveRecord::Schema.define(version: 2019_04_08_074021) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -72,6 +72,17 @@ ActiveRecord::Schema.define(version: 2019_04_01_111603) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "company_domains_count"
+  end
+
+  create_table "email_contents", force: :cascade do |t|
+    t.string "emailable_type"
+    t.integer "emailable_id"
+    t.string "receiver"
+    t.string "sender"
+    t.text "content"
+    t.string "subject"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "images", force: :cascade do |t|
