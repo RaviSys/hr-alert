@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_074021) do
+ActiveRecord::Schema.define(version: 2019_04_08_113819) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 2019_04_08_074021) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "companies_count"
   end
 
   create_table "job_post_keywords", force: :cascade do |t|
