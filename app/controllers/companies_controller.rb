@@ -22,7 +22,7 @@ class CompaniesController < ApplicationController
     end
 
     def load_cities
-      @cities = Company.pluck(:city).sort.uniq
+      @cities = Company.pluck(:city).compact.sort.uniq
     end
 
 end
