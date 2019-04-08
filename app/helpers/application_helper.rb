@@ -25,5 +25,9 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  def company_count_by_city(city)
+    Company.where(city: city).count
+  end
   
 end

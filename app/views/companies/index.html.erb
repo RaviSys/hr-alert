@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row mt-5 mb-5">
+    <div class="col-md-3">
+      <div class="card rounded-0">
+        <div class="card-body">
+          <% @industries.each do |industry| %>
+            <%= link_to '' do %>
+              <span class="mb-2 font-13"><%= industry.name %> (<%= industry.companies.count %>)</span><br>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card rounded-0">
+        <div class="card-body">
+          <% @companies.each do |company| %>
+            <%= link_to company do %>
+              <h5 class="text-muted font-weight-bold text-site"><%= company.name %></h5>
+            <% end %>
+            <h6 class="text-muted font-14"><%= company.address %></h6>
+            <hr>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card rounded-0">
+        <div class="card-body">
+          <% @cities.each do |city| %>
+            <%= link_to companies_path(city: city) do %>
+              <span class="mb-2 font-13"><%= city %> (<%= company_count_by_city(city)%>)</span><br>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
