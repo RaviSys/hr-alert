@@ -15,5 +15,7 @@
 //= require popper
 //= require bootstrap
 //= require selectize
+//= require jquery.dataTables.min
+//= require dataTables.bootstrap4.min
 //= require activestorage
 //= require autocomplete
