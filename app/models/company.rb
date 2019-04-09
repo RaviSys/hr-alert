@@ -38,6 +38,7 @@ end
 # Table name: companies
 #
 #  id                    :integer          not null, primary key
+#  about                 :text
 #  address               :string
 #  city                  :string
 #  company_domains_count :integer

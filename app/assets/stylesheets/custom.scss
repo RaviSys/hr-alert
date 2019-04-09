@@ -13,7 +13,7 @@ body {
   color: #fff !important; 
 }
 .footer {
-  position: fixed;
+  /*position: fixed;*/
   bottom: 0;
   width: 100%;
   height: 60px;
@@ -86,4 +86,7 @@ body {
 }
 .font-60 {
   font-size: 60px !important;
+}
+.lh-18 {
+  line-height: 1.8 !important;
 }

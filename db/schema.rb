@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_113819) do
+ActiveRecord::Schema.define(version: 2019_04_09_064512) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_04_08_113819) do
     t.integer "contacts_count"
     t.integer "user_id"
     t.string "status"
+    t.text "about"
     t.index ["industry_id"], name: "index_companies_on_industry_id"
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
